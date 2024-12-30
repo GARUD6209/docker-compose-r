@@ -1,8 +1,5 @@
 services:
   nginx:
-    build:
-      context: ./retail-store-react
-      dockerfile: Dockerfile # This assumes your Dockerfile is in the 'retail-store-react' directory
     image: garud6209/retail-store-react:latest
     restart: unless-stopped
     ports:
@@ -12,7 +9,7 @@ services:
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf # Mount the custom Nginx config
     environment:
-      - VITE_API_URL=http://retail-store:8080 # Pass the API URL to React at build time
+      - VITE_API_URL=http://retail-store:8080 # Backend API URL for React app
 
   retail-store:
     image: garud6209/retail-store:latest
