@@ -3,7 +3,7 @@ services:
     image: garud6209/retail-store-react:latest
     restart: unless-stopped
     ports:
-      - "8081:80" # Serve React via Nginx
+      - "8081:8081" # Serve React via Nginx
     networks:
       - retail_app
     volumes:
