@@ -1,15 +1,16 @@
 services:
   nginx:
     image: garud6209/retail-store-react:latest
+    container_name: nginx-react-app
     restart: unless-stopped
     ports:
-      - "8081:8081" # Serve React via Nginx
+      - "8081:80" # Serve React via Nginx
     networks:
-      - retail_app
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf # Mount the custom Nginx config
+      retail_app:
     environment:
-      - VITE_API_URL=http://15.207.109.188:8080 # Backend API URL for React app
+      - REACT_APP_API_URL=${API_URL} # Dynamically set the API URL during startup
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
 
   retail-store:
     image: garud6209/retail-store:latest
