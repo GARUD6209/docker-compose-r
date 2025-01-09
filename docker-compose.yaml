@@ -8,9 +8,10 @@ services:
     networks:
       retail_app:
     environment:
-      - VITE_API_URL=${API_URL} # Pass the environment variable
+      - VITE_API_URL=http://15.207.109.188:8080 # Pass the environment variable
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf
+      
 
   retail-store:
     image: garud6209/retail-store:latest
