@@ -8,7 +8,7 @@ services:
     networks:
       retail_app:
     environment:
-      - REACT_APP_API_URL=${API_URL} # Dynamically set the API URL during startup
+      - VITE_API_URL=${API_URL} # Pass the environment variable
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf
 
